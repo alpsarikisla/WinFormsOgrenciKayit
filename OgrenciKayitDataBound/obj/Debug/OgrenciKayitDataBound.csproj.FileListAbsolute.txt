@@ -1,0 +1,10 @@
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\bin\Debug\OgrenciKayitDataBound.exe.config
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\bin\Debug\OgrenciKayitDataBound.exe
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\bin\Debug\OgrenciKayitDataBound.pdb
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.csproj.AssemblyReference.cache
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.AnaForm.resources
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.Properties.Resources.resources
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.csproj.GenerateResource.cache
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.csproj.CoreCompileInputs.cache
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.exe
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.pdb
