@@ -46,6 +46,7 @@
     <Compile Include="DataModel.cs" />
     <Compile Include="Fakulte.cs" />
     <Compile Include="Ilce.cs" />
+    <Compile Include="Kullanici.cs" />
     <Compile Include="Ogrenci.cs" />
     <Compile Include="OgrenciOkul.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

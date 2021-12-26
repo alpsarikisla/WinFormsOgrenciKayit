@@ -8,3 +8,9 @@ C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\
 C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.csproj.CoreCompileInputs.cache
 C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.exe
 C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.pdb
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\bin\Debug\DataAccessLayer.dll
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\bin\Debug\DataAccessLayer.pdb
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.csproj.SuggestedBindingRedirects.cache
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.KullaniciGiris.resources
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.csproj.CopyComplete
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\obj\Debug\OgrenciKayitDataBound.OgrenciKayit.resources

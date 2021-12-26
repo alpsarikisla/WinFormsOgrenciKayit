@@ -16,6 +16,39 @@ namespace DataAccessLayer
             cmd = con.CreateCommand();
         }
 
+        public Kullanici KullaniciGiris(string email, string sifre)
+        {
+            try
+            {
+                Kullanici k = null;
+                cmd.CommandText = "SELECT * FROM Kullanicilar WHERE Email=@e AND Sifre =@s";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@e", email);
+                cmd.Parameters.AddWithValue("@s", sifre);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    k = new Kullanici();
+                    k.ID = reader.GetInt32(0);
+                    k.Isim = reader.GetString(1);
+                    k.Soyad = reader.GetString(2);
+                    k.Mail = reader.GetString(3);
+                    k.Sifre = reader.GetString(4);
+                    k.Durum = reader.GetBoolean(5);
+                }
+                return k;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public List<Sehir> SehirleriGetir()
         {
             List<Sehir> sehirler = new List<Sehir>();
@@ -214,6 +247,46 @@ namespace DataAccessLayer
             catch
             {
                 return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<Ogrenci> OgrencileriGetir()
+        {
+            List<Ogrenci> ogrenciler = new List<Ogrenci>();
+            try
+            {
+                cmd.CommandText = "SELECT O.*, S.Isim, I.Isim, K.Isim + ' ' + K.Soyad AS Kullanici FROM Ogrenciler AS O JOIN Sehirler AS S ON S.ID = O.SehirID JOIN Ilceler AS I ON I.ID = O.IlceID JOIN Kullanicilar AS K ON K.ID = O.KullaniciID";
+                cmd.Parameters.Clear();
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Ogrenci ogr = new Ogrenci();
+                    ogr.ID = reader.GetInt32(0);
+                    ogr.SehirID = reader.GetInt32(1);
+                    ogr.IlceID = reader.GetInt32(2);
+                    ogr.KullaniciID = reader.GetInt32(3);
+                    ogr.TCNo = reader.GetString(4);
+                    ogr.Isim = reader.GetString(5);
+                    ogr.Soyisim = reader.GetString(6);
+                    ogr.TelNo = reader.GetString(7);
+                    ogr.Adres = reader.GetString(8);
+                    ogr.Resim = !reader.IsDBNull(9) ? reader.GetString(9) : "none.png";
+                    ogr.SehirIsim = reader.GetString(10);
+                    ogr.IlceIsim = reader.GetString(11);
+                    ogr.KullaniciIsim = reader.GetString(12);
+                    ogrenciler.Add(ogr);
+                }
+                return ogrenciler;
+            }
+            catch
+            {
+                return null;
             }
             finally
             {

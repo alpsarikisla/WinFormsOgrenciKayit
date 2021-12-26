@@ -1,0 +1,6 @@
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
