@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1938d06b-c874-442f-a077-9f7e131ec793": {
+      "ProjectGuid": "1938d06b-c874-442f-a077-9f7e131ec793",
+      "DisplayName": "OgrenciKayitDataBound",
+      "ColorIndex": 0
+    },
+    "917722b4-cfa4-4261-8652-ddf1e2e4b449": {
+      "ProjectGuid": "917722b4-cfa4-4261-8652-ddf1e2e4b449",
+      "DisplayName": "DataAccessLayer",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -201,7 +202,7 @@ namespace DataAccessLayer
            
             try
             {
-                cmd.CommandText = "INSERT INTO Ogrenciler(SehirID,IlceID,TCNo,Isim,Soyisim,TelNo,Adres,Resim) VALUES(@sehirID,@ilceID,@tCNo,@isim,@soyisim,@telNo,@adres,@resim) SELECT @@IDENTITY";
+                cmd.CommandText = "INSERT INTO Ogrenciler(SehirID,IlceID,TCNo,Isim,Soyisim,TelNo,Adres,KullaniciID) VALUES(@sehirID,@ilceID,@tCNo,@isim,@soyisim,@telNo,@adres,@kullaniciID) SELECT @@IDENTITY";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@sehirID", ogr.SehirID);
                 cmd.Parameters.AddWithValue("@ilceID", ogr.IlceID);
@@ -210,13 +211,13 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@soyisim", ogr.Soyisim);
                 cmd.Parameters.AddWithValue("@telNo", ogr.TelNo);
                 cmd.Parameters.AddWithValue("@adres", ogr.Adres);
-                cmd.Parameters.AddWithValue("@resim", ogr.Resim);
+                cmd.Parameters.AddWithValue("@kullaniciID", ogr.KullaniciID);
                 con.Open();
 
                 int gelenid = Convert.ToInt32(cmd.ExecuteScalar());
                 return gelenid;
             }
-            catch
+            catch(Exception ex)
             {
                 return -1;
             }
@@ -230,7 +231,7 @@ namespace DataAccessLayer
         {
             try
             {
-                cmd.CommandText = "INSERT INTO OgrenciOkullar(OgrenciID,UniversiteID,FakulteID,BolumID,BaslangicYil,BitisYil,Durum)VALUES(@ogrenciID,@universiteID,@fakulteID,@bolumID,@baslangicYil,@bitisYil,@durum)";
+                cmd.CommandText = "INSERT INTO OgrenciOkullar(OgrenciID, UniversiteID, FakulteID, BolumID, BaslangicYil, BitisYil, Durum)VALUES(@ogrenciID,@universiteID,@fakulteID,@bolumID,@baslangicYil,@bitisYil,@durum)";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@ogrenciID", oo.OgrenciID);
                 cmd.Parameters.AddWithValue("@universiteID", oo.UniversiteID);
@@ -285,6 +286,106 @@ namespace DataAccessLayer
                 return ogrenciler;
             }
             catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public Ogrenci OgrenciGetir(int id)
+        {
+            try
+            {
+                cmd.CommandText = "SELECT O.*, S.Isim, I.Isim, K.Isim + ' ' + K.Soyad AS Kullanici FROM Ogrenciler AS O JOIN Sehirler AS S ON S.ID = O.SehirID JOIN Ilceler AS I ON I.ID = O.IlceID JOIN Kullanicilar AS K ON K.ID = O.KullaniciID WHERE O.ID = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                Ogrenci ogr = new Ogrenci();
+                while (reader.Read())
+                {
+                    ogr.ID = reader.GetInt32(0);
+                    ogr.SehirID = reader.GetInt32(1);
+                    ogr.IlceID = reader.GetInt32(2);
+                    ogr.KullaniciID = reader.GetInt32(3);
+                    ogr.TCNo = reader.GetString(4);
+                    ogr.Isim = reader.GetString(5);
+                    ogr.Soyisim = reader.GetString(6);
+                    ogr.TelNo = reader.GetString(7);
+                    ogr.Adres = reader.GetString(8);
+                    ogr.Resim = !reader.IsDBNull(9) ? reader.GetString(9) : "none.png";
+                    ogr.SehirIsim = reader.GetString(10);
+                    ogr.IlceIsim = reader.GetString(11);
+                    ogr.KullaniciIsim = reader.GetString(12);
+                }
+                return ogr;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public DataTable OgrencileriGetirDt()
+        {
+            try
+            {
+                cmd.CommandText = "SELECT O.ID,O.TCNo,O.Isim AS [İsim],O.Soyisim,O.TelNo AS [Telefon],O.Adres,O.Resim, S.Isim AS [Şehir], I.Isim AS [İlçe], K.Isim + ' ' + K.Soyad AS Kullanici FROM Ogrenciler AS O JOIN Sehirler AS S ON S.ID = O.SehirID JOIN Ilceler AS I ON I.ID = O.IlceID JOIN Kullanicilar AS K ON K.ID = O.KullaniciID";
+                cmd.Parameters.Clear();
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public DataTable OgrencileriGetirDt2()
+        {
+            try
+            {
+                cmd.CommandText = "SELECT O.ID,O.TCNo,O.Isim AS [İsim],O.Soyisim,O.TelNo AS [Telefon],O.Adres,O.Resim, S.Isim AS [Şehir], I.Isim AS [İlçe], K.Isim + ' ' + K.Soyad AS Kullanici FROM Ogrenciler AS O JOIN Sehirler AS S ON S.ID = O.SehirID JOIN Ilceler AS I ON I.ID = O.IlceID JOIN Kullanicilar AS K ON K.ID = O.KullaniciID";
+                cmd.Parameters.Clear();
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("No");
+                dt.Columns.Add("Kimlik No");
+                dt.Columns.Add("Isim");
+                dt.Columns.Add("Soyad");
+                dt.Columns.Add("Telefon");
+                while (reader.Read())
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["No"] = reader["ID"];
+                    dr["Kimlik No"] = reader["TCNo"];
+                    dr["Isim"] = reader["İsim"];
+                    dr["Soyad"] = reader["Soyisim"];
+                    dr["Telefon"] = reader["Telefon"];
+                    dt.Rows.Add(dr);
+                }
+                //dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
             {
                 return null;
             }
