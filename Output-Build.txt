@@ -1,0 +1,4 @@
+﻿Build started...
+1>------ Build started: Project: OgrenciKayitDataBound, Configuration: Debug Any CPU ------
+1>  OgrenciKayitDataBound -> C:\Users\302-PC\Documents\GitHub\WinFormsOgrenciKayit\OgrenciKayitDataBound\bin\Debug\OgrenciKayitDataBound.exe
+========== Build: 1 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========

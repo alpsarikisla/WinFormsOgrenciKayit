@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Bolum.cs" />
     <Compile Include="ConnectionString.cs" />
+    <Compile Include="DataFunctionResults.cs" />
     <Compile Include="DataModel.cs" />
     <Compile Include="Fakulte.cs" />
     <Compile Include="Ilce.cs" />

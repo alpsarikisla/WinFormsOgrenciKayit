@@ -14,6 +14,7 @@ namespace OgrenciKayitDataBound
     public partial class OgrenciKayit : Form
     {
         DataModel dm = new DataModel();
+        int guncellenecekid = -1;
         public OgrenciKayit()
         {
             InitializeComponent();
@@ -86,6 +87,7 @@ namespace OgrenciKayitDataBound
         {
             DataGridViewRow row = dgw_ogrenciler.SelectedRows[0];
             int id = Convert.ToInt32(row.Cells[0].Value);
+            guncellenecekid = id;
             Ogrenci ogr = dm.OgrenciGetir(id);
             tb_adres.Text = ogr.Adres;
             tb_isim.Text = ogr.Isim;
@@ -108,5 +110,80 @@ namespace OgrenciKayitDataBound
                 contextMenuStrip1.Show(dgw_ogrenciler, new Point(e.X, e.Y));
             }
         }
+
+        private void btn_guncelle_Click(object sender, EventArgs e)
+        {
+            if (guncellenecekid != -1)
+            {
+                Ogrenci ogr = dm.OgrenciGetir(guncellenecekid);
+                ogr.Adres = tb_adres.Text;
+                ogr.SehirID = Convert.ToInt32(cb_sehir.SelectedValue);
+                ogr.IlceID = Convert.ToInt32(cb_ilce.SelectedValue);
+                ogr.Isim = tb_isim.Text;
+                ogr.Soyisim = tb_soyisim.Text;
+                ogr.TelNo = mtb_telefon.Text.Replace("(", "").Replace(")", "").Replace(" ", "");
+                ogr.TCNo = mtb_tc.Text;
+
+                switch (dm.OgrenciGuncelle(ogr))
+                {
+                    case DataFunctionResults.Basarili:
+                        MessageBox.Show("Güncelleme Başarılı");
+                            break;
+                    case DataFunctionResults.Basarisiz:
+                        MessageBox.Show("Güncelleme Başarısız");
+                        break;
+                   
+                }
+                guncellenecekid = -1;
+                dgw_ogrenciler.DataSource = (dm.OgrencileriGetirDt());
+                Domestos();
+            }
+        }
+        private void SilTSMI_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgw_ogrenciler.SelectedRows[0];
+            int id = Convert.ToInt32(row.Cells[0].Value);
+            if (MessageBox.Show($"{id} ID'li Veri Silinecek Emin Misin?","Dikkat", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (dm.OgrenciSil(id) == DataFunctionResults.Basarisiz)
+                {
+                    MessageBox.Show("Hata Oluştu");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Silme İşlemi iptal edildi");
+            }
+
+
+            dgw_ogrenciler.DataSource = (dm.OgrencileriGetirDt());
+        }
+        public void Domestos()
+        {
+            //tb_adres.Text = tb_isim.Text = tb_soyisim.Text = String.Empty;
+            cb_sehir.DataSource = dm.SehirleriGetir();
+
+            foreach (Control item in this.Controls)
+            {
+                if (item.GetType() == typeof(TextBox) || item.GetType() == typeof(MaskedTextBox))
+                {
+                    item.Text = String.Empty;
+                }
+                else if(item.GetType() == typeof(GroupBox))
+                {
+                    foreach (Control gbItem in item.Controls)
+                    {
+                        if (gbItem.GetType() == typeof(TextBox) || gbItem.GetType() == typeof(MaskedTextBox))
+                        {
+                            gbItem.Text = String.Empty;
+                        }
+                    }
+                }
+
+            }
+            
+        }
+
+       
     }
 }

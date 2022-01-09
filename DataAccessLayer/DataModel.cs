@@ -227,6 +227,55 @@ namespace DataAccessLayer
             }
         }
 
+        public DataFunctionResults OgrenciGuncelle(Ogrenci ogr)
+        {
+            try
+            {
+                cmd.CommandText = "UPDATE Ogrenciler SET SehirID=@sehirID, IlceID=@ilceID,TCNo=@tcno, Isim=@isim, Soyisim=@soyisim, TelNo=telNo, Adres=@adres WHERE ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", ogr.ID);
+                cmd.Parameters.AddWithValue("@sehirID", ogr.SehirID);
+                cmd.Parameters.AddWithValue("@ilceID", ogr.IlceID);
+                cmd.Parameters.AddWithValue("@tCNo", ogr.TCNo);
+                cmd.Parameters.AddWithValue("@isim", ogr.Isim);
+                cmd.Parameters.AddWithValue("@soyisim", ogr.Soyisim);
+                cmd.Parameters.AddWithValue("@telNo", ogr.TelNo);
+                cmd.Parameters.AddWithValue("@adres", ogr.Adres);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return DataFunctionResults.Basarili;
+            }
+            catch (Exception ex)
+            {
+                return DataFunctionResults.Basarisiz;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public DataFunctionResults OgrenciSil(int id)
+        {
+            try
+            {
+                cmd.CommandText = "DELETE FROM Ogrenciler WHERE ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return DataFunctionResults.Basarili;
+            }
+            catch (Exception ex)
+            {
+                return DataFunctionResults.Basarisiz;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public bool OgrenciOkulEkle(OgrenciOkul oo)
         {
             try

@@ -31,20 +31,20 @@ namespace OgrenciKayitDataBound
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cb_ilce = new System.Windows.Forms.ComboBox();
-            this.cb_sehir = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.mtb_tc = new System.Windows.Forms.MaskedTextBox();
             this.mtb_telefon = new System.Windows.Forms.MaskedTextBox();
-            this.tb_adres = new System.Windows.Forms.TextBox();
             this.tb_soyisim = new System.Windows.Forms.TextBox();
             this.tb_isim = new System.Windows.Forms.TextBox();
+            this.cb_ilce = new System.Windows.Forms.ComboBox();
+            this.cb_sehir = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_adres = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cb_bolum = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -84,50 +84,6 @@ namespace OgrenciKayitDataBound
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Öğrenci Bilgileri";
-            // 
-            // cb_ilce
-            // 
-            this.cb_ilce.FormattingEnabled = true;
-            this.cb_ilce.Location = new System.Drawing.Point(93, 59);
-            this.cb_ilce.Name = "cb_ilce";
-            this.cb_ilce.Size = new System.Drawing.Size(226, 21);
-            this.cb_ilce.TabIndex = 3;
-            // 
-            // cb_sehir
-            // 
-            this.cb_sehir.FormattingEnabled = true;
-            this.cb_sehir.Location = new System.Drawing.Point(93, 29);
-            this.cb_sehir.Name = "cb_sehir";
-            this.cb_sehir.Size = new System.Drawing.Size(226, 21);
-            this.cb_sehir.TabIndex = 3;
-            this.cb_sehir.SelectedIndexChanged += new System.EventHandler(this.cb_sehir_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 94);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Adres:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 62);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "İlçe:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Şehir:";
             // 
             // label4
             // 
@@ -181,14 +137,6 @@ namespace OgrenciKayitDataBound
             this.mtb_telefon.Size = new System.Drawing.Size(226, 20);
             this.mtb_telefon.TabIndex = 1;
             // 
-            // tb_adres
-            // 
-            this.tb_adres.Location = new System.Drawing.Point(93, 91);
-            this.tb_adres.Multiline = true;
-            this.tb_adres.Name = "tb_adres";
-            this.tb_adres.Size = new System.Drawing.Size(226, 56);
-            this.tb_adres.TabIndex = 0;
-            // 
             // tb_soyisim
             // 
             this.tb_soyisim.Location = new System.Drawing.Point(87, 59);
@@ -202,6 +150,58 @@ namespace OgrenciKayitDataBound
             this.tb_isim.Name = "tb_isim";
             this.tb_isim.Size = new System.Drawing.Size(226, 20);
             this.tb_isim.TabIndex = 0;
+            // 
+            // cb_ilce
+            // 
+            this.cb_ilce.FormattingEnabled = true;
+            this.cb_ilce.Location = new System.Drawing.Point(93, 59);
+            this.cb_ilce.Name = "cb_ilce";
+            this.cb_ilce.Size = new System.Drawing.Size(226, 21);
+            this.cb_ilce.TabIndex = 3;
+            // 
+            // cb_sehir
+            // 
+            this.cb_sehir.FormattingEnabled = true;
+            this.cb_sehir.Location = new System.Drawing.Point(93, 29);
+            this.cb_sehir.Name = "cb_sehir";
+            this.cb_sehir.Size = new System.Drawing.Size(226, 21);
+            this.cb_sehir.TabIndex = 3;
+            this.cb_sehir.SelectedIndexChanged += new System.EventHandler(this.cb_sehir_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Adres:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 62);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(27, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "İlçe:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Şehir:";
+            // 
+            // tb_adres
+            // 
+            this.tb_adres.Location = new System.Drawing.Point(93, 91);
+            this.tb_adres.Multiline = true;
+            this.tb_adres.Name = "tb_adres";
+            this.tb_adres.Size = new System.Drawing.Size(226, 56);
+            this.tb_adres.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -308,7 +308,7 @@ namespace OgrenciKayitDataBound
             this.GuncelleTSMI,
             this.SilTSMI});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // GuncelleTSMI
             // 
@@ -320,8 +320,9 @@ namespace OgrenciKayitDataBound
             // SilTSMI
             // 
             this.SilTSMI.Name = "SilTSMI";
-            this.SilTSMI.Size = new System.Drawing.Size(120, 22);
+            this.SilTSMI.Size = new System.Drawing.Size(180, 22);
             this.SilTSMI.Text = "Sil";
+            this.SilTSMI.Click += new System.EventHandler(this.SilTSMI_Click);
             // 
             // groupBox3
             // 
@@ -347,6 +348,7 @@ namespace OgrenciKayitDataBound
             this.btn_guncelle.Text = "Güncelle";
             this.btn_guncelle.UseVisualStyleBackColor = true;
             this.btn_guncelle.Visible = false;
+            this.btn_guncelle.Click += new System.EventHandler(this.btn_guncelle_Click);
             // 
             // btn_iptal
             // 
